@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresas con Crema</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Fresas con Crema</h1>
+      <p>El mejor postre para endulzar tu día</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Elige tu postre</h2>
+      <div class="postres">
+        <div class="postre">
+          <img src="https://res.cloudinary.com/dl91kein6/image/upload/v1741805621/productos/mfrltltclnbyslahourh.jpg" alt="Fresas con crema">
+          <label for="opcion1">Fresas con crema</label>
+          <input type="checkbox" id="opcion1" name="opciones" value="Fresas con crema">
+        </div>
+        <div class="postre">
+          <img src="https://res.cloudinary.com/dl91kein6/image/upload/v1741805801/productos/osplbaaap47nve5vjixr.jpg" alt="Crema con gelatina de leche">
+          <label for="opcion2">Crema con gelatina de leche</label>
+          <input type="checkbox" id="opcion2" name="opciones" value="Crema con gelatina de leche">
+        </div>
+        <div class="postre">
+          <img src="https://res.cloudinary.com/dl91kein6/image/upload/v1741805901/productos/xfacttoidwrukkzbo6ft.jpg" alt="Crema con gelatina de agua">
+          <label for="opcion3">Crema con gelatina de agua</label>
+          <input type="checkbox" id="opcion3" name="opciones" value="Crema con gelatina de agua">
+        </div>
+      </div>
+      <h5>Todas las opciones llevan la misma crema de las fresas con crema</h5>
+      <input type="text" id="nombre" placeholder="Tu nombre">
+      <button onclick="guardarPedido()">Confirmar</button>
+      <div id="resultado" class="resultado" style="display: none;"></div>
+      <p><a href="pedidos.html">Ver pedidos</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Fresas con Crema. Todos los derechos reservados.</p>
+      <p>Programmed by Fatima and Gabriel</p>
+    </div>
+  </footer>
+
+  <script src="cliente.js"></script>
+</body>
+</html>
