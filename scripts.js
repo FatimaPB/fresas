@@ -10,19 +10,31 @@ function verificarClave() {
 }
 
 function cargarPedidos() {
-    var pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-    var pedidosDiv = document.getElementById("pedidos");
-    pedidosDiv.innerHTML = "";
-    
-    // Mostrar los pedidos con las opciones
-    pedidos.forEach((pedido, index) => {
-        pedidosDiv.innerHTML += `<p><strong>${index + 1}.</strong> ${pedido.nombre} - ${pedido.opciones.join(", ")}</p>`;
-    });
+    fetch("https://doctors-api-theta.vercel.app/api/pedidos")  // 👈 Cambia esto por tu URL real
+        .then(response => response.json())
+        .then(pedidos => {
+            var pedidosDiv = document.getElementById("pedidos");
+            pedidosDiv.innerHTML = "";
+
+            pedidos.forEach((pedido, index) => {
+                pedidosDiv.innerHTML += `<p><strong>${index + 1}.</strong> ${pedido.nombre} - ${pedido.opciones.join(", ")}</p>`;
+            });
+        })
+        .catch(error => console.error("Error al cargar pedidos:", error));
 }
 
+// 🗑️ Modificar `borrarPedidos()` para eliminar los pedidos de la base de datos
 function borrarPedidos() {
     if (confirm("¿Estás seguro de borrar todos los pedidos?")) {
-        localStorage.removeItem("pedidos");
-        cargarPedidos();
+        fetch("https://doctors-api-theta.vercel.app/api/eliminarpedidos", {  // 👈 Cambia esto por tu URL real
+            method: "DELETE"
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.mensaje);
+            cargarPedidos();
+        })
+        .catch(error => console.error("Error al borrar pedidos:", error));
     }
 }
+
